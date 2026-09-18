@@ -1,6 +1,17 @@
-node_modules
-.agents
-/generated/prisma
-.claude
-.windsurf
+# Dependencies
+node_modules/
+
+# Environment variables
 .env
+.env.*
+
+# SQLite
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# AI coding tools - local configuration
+.agents/
+.claude/
+.windsurf/

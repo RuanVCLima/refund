@@ -10,6 +10,7 @@ datasource db {
 
 enum UserRole{
   employee
+  manager
 }
 
 enum Category {
@@ -51,3 +52,4 @@ model Refunds{
 
   @@map("refunds")
 }
+

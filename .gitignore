@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 generated
+tmp
 
 # Environment variables
 .env

@@ -1,0 +1,273 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Refund
+meta:
+  id: wrk_a30debac3ec6455b8762c64804124b34
+  created: 1789635118359
+  modified: 1789635118359
+  description: ""
+collection:
+  - name: Users
+    meta:
+      id: fld_165e6f93a29f4068b8c1c10869035a2f
+      created: 1789732381003
+      modified: 1789732399580
+      sortKey: -1789732381003
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_40b793e3ecfe4996acc526a1388935d5
+          created: 1789732403129
+          modified: 1789818208468
+          isPrivate: false
+          description: ""
+          sortKey: -1789732403129
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Riso",
+            	"email": "riso@gmail.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: users
+  - name: Sessions
+    meta:
+      id: fld_16405e55066e4a66a40a320e8a9786f4
+      created: 1789769456815
+      modified: 1789769475849
+      sortKey: -1789769456815
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_448f78c1147849ecb8e2ed17f3eb9160
+          created: 1789769479109
+          modified: 1789843478867
+          isPrivate: false
+          description: ""
+          sortKey: -1789769479109
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "andrey@gmail.com",
+            	"password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: sessions
+  - name: Refunds
+    meta:
+      id: fld_72029b88be0b42b1af533fb138460530
+      created: 1789811724761
+      modified: 1789811741096
+      sortKey: -1789811724761
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_244912e983b64f01a033f028817ccf9c
+          created: 1789811728603
+          modified: 1789818244370
+          isPrivate: false
+          description: ""
+          sortKey: -1789811728603
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Lunch",
+            	"category": "food",
+            	"amount": 50.25,
+            	"fileName": "awhnck4515asd45s1c21as5.png"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_448f78c1147849ecb8e2ed17f3eb9160',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: index
+        meta:
+          id: req_efca7b9c94a84a6cab9361c723d48ae5
+          created: 1789817347044
+          modified: 1789824912448
+          isPrivate: false
+          description: ""
+          sortKey: -1789817347044
+        method: GET
+        parameters:
+          - name: name
+            value: andrey
+            description: ""
+            disabled: true
+          - name: perPage
+            value: "1"
+            description: ""
+            disabled: false
+          - name: page
+            value: "1"
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_448f78c1147849ecb8e2ed17f3eb9160',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}/65021503-c45f-4fee-bbb1-715c0e540b22"
+        name: show
+        meta:
+          id: req_634936fb3d264854b5628aa166c96122
+          created: 1789825396156
+          modified: 1789825543762
+          isPrivate: false
+          description: ""
+          sortKey: -1789825396156
+        method: GET
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_448f78c1147849ecb8e2ed17f3eb9160',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: refunds
+  - name: Uploads
+    meta:
+      id: fld_9da2f7b628ba4046a70e95d3cea32d31
+      created: 1789843367764
+      modified: 1789843383461
+      sortKey: -1789843367764
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_cdaecd82b2004b1cafaf0b6ee2e9ea1b
+          created: 1789843387483
+          modified: 1789846928772
+          isPrivate: false
+          description: ""
+          sortKey: -1789843387483
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: file
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\Dokwit\Pictures\comprovantes\Modelo-de-comprovante-de-pagamento.png
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_448f78c1147849ecb8e2ed17f3eb9160',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE
+          }}/c3b69ba19e2a3859d04b-Modelo-de-comprovante-de-pagamento.png"
+        name: Show
+        meta:
+          id: req_a93167f9112a48b8acce8ec7617ade96
+          created: 1789846868564
+          modified: 1789846948331
+          isPrivate: false
+          description: ""
+          sortKey: -1789846868564
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: uploads
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_f71b1c406692decb0f9d5f02590aae56a76b9a7c
+    created: 1789635118374
+    modified: 1789635118374
+environments:
+  name: Base Environment
+  meta:
+    id: env_f71b1c406692decb0f9d5f02590aae56a76b9a7c
+    created: 1789635118366
+    modified: 1789635118366
+    isPrivate: false
+  subEnvironments:
+    - name: dev
+      meta:
+        id: env_ad2a3fb13f4640afb1c7ae9687a417f6
+        created: 1789635134432
+        modified: 1789635173117
+        isPrivate: false
+        sortKey: 1789635134432
+      data:
+        BASE_URL: http://localhost:3333

@@ -1,5 +1,7 @@
 import {Request, Response} from "express"
 import { z } from "zod"
+import { prisma } from "@/database/prisma"
+import { AppError } from "@/utils/AppError"
 
 class RefundController{
     async create(request: Request, response: Response){
@@ -16,13 +18,28 @@ class RefundController{
             name: z.string().trim().min(1, {message: "Name is required"}),
             category: CategoriesEnum,
             amount: z.number().positive({message: "The value needs to be positive"}),
-            filename: z.string().min(20)
+            fileName: z.string().min(20)
         })
 
-        const { name, category, amount, filename } = bodySchema.parse(request.body)
+        const { name, category, amount, fileName } = bodySchema.parse(request.body)
+
+        if(!request.user?.id){
+            throw new AppError("Unauthorized",401)
+        }
+
+        const refund  = await prisma.refunds.create({
+            data:{
+                name,
+                category,
+                amount,
+                fileName,
+                userId: request.user.id,
+
+            }
+        })
 
 
-        response.json({message: "ok"})
+        response.status(201).json(refund)
     }
 }
 

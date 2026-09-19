@@ -3,7 +3,7 @@ import { usersRoutes } from "./users-routes";
 import { sessionsRoutes } from "./sessions-routes";
 import { refundRoutes } from "./refunds-routes";
 import { ensureAuthenticated } from "@/middlewares/ensure-authenticated";
-import { uploadsroutes } from "./uplodas-routes";
+import { uploadsroutes } from "./uplods-routes";
 
 const routes = Router()
 
